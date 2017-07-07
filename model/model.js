@@ -20,15 +20,16 @@ myCONNECTION.connect(function(err){
 //Modifications to SQL where necessary
 myCONNECTION.query(function(err){
 	if (err){
-		console.error("error connecting:" + err.stack)
+		throw err;
 	};
 	console.log("connected as id:" + myCONNECTION.threadId);
 
 });//This only works when MySQL is running. 
 
 //When you have your variable containing the right user input and API data, perform these SQL queries accordingly.
-var ___ = require("../server.js");
-myCONNECTION.query(function(err, res){
+var server = require("../server.js");
+
+var /*make a variable name model.js shares with server.js*/ = myCONNECTION.query(function(err, res){
 	if (err){
 		throw err
 	};

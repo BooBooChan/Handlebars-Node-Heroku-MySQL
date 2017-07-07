@@ -17,14 +17,12 @@ SELECT * FROM `reviews`;#Columns are id, album, title, score, content
 #Joining data
 
 #This join will disply to users who want to look up any band.
-SELECT `id`, `country`, `name`, `theme`
-FROM `bands`;
+SELECT `id`, `country`, `name`, `theme` FROM `bands`;
 INNER JOIN `albums` ON bands.name = albums.band; #Other option includes albums.title = reviews.album, and you can create new foreign keys
 ORDER BY `bands.id` ASC;
 
 #This will display album reviews to users, from most positive to most negative
-SELECT * 
-FROM `albums`;
+SELECT * FROM `albums`;
 INNER JOIN `reviews` ON `albums.name` = `reviews.album`;			
 ORDER BY `reviews.score` DESC;
 
@@ -33,7 +31,6 @@ SELECT * FROM `reviews` WHERE `content` LIKE `%guitar%`, `%drum%`, `%bass%`, `%s
 
 #I saw some f-bombs in those reviews. Can we filter out reviews containing explicit words for the wary parent raising their kids on death metal? F%*&!
 SELECT * FROM `reviews` WHERE NOT `content` LIKE `%fuck%`, `%shit%`, `%asshole%`, `%whore%`, `%porn%`;
-DELETE 
 
 #Let's find the brutal old farts who probably should have retired decades ago.
 SELECT `id`, `name`, `formed_in`, `active`, ``FROM `bands` WHERE `active` LIKE `%present`;
